@@ -86,4 +86,18 @@ public class PlayList {
         return "You have reached the Start of playList";
     }
 
+    public String playCurrent(){
+        if(wasNext){
+            wasNext=false;
+           return "current song is " +itr.previous();
+        }else{
+            wasNext=true;
+            return "current song is"+ itr.next();
+        }
+    }
+
+
+
+
+
 }
