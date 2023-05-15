@@ -27,7 +27,8 @@ public class PlayList {
 
     //    add song from album to PlayList
     public String addSongFromAlbum(Album album,String songName) {
-//     Boolean songExists=album.findSong(songName);  //o(N)
+
+        //     Boolean songExists=album.findSong(songName);  //o(N)
 //     Song song;
 //     if(songExists){
 //         song=album.searchSong(songName);  //o(N)
@@ -40,6 +41,8 @@ public class PlayList {
         this.songs.add(songInAlbum);
         return "Song added Successfully";
     }
+
+
 
 
 
