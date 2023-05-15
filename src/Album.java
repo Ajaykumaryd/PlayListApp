@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Album {
     private String title;
@@ -19,12 +20,20 @@ public class Album {
         this.artist = artist;
     }
 
-    public boolean findSong(Song songTofind){
+    public boolean findSong(Song songFind){
         for(Song song:songs){
-            if(song.getName().equals(songTofind.getName())&& song.getArtist().equals(songTofind.getArtist())) return true;
+            if(song.getName().equals(songFind.getName())&& song.getArtist().equals(songFind.getArtist())) return true;
         }
         return false;
     }
+
+    public boolean findSong(String SongName){
+        for(Song song:songs){
+            if(song.getName().equals(SongName)) return true;
+        }
+        return false;
+    }
+
     public String addSong(Song song){
        if(this.findSong(song)){
            return "Song already exists";
@@ -32,5 +41,16 @@ public class Album {
            songs.add(song);
            return "Song Added";
        }
+    }
+
+//    Optional is a new type introduced in Java 8.
+//    It is used to represent a value that may or may not be present.
+//    In other words, an Optional object can either contain a non-null value (in which case it is considered present)
+//    or it can contain no value at all (in which case it is considered empty).
+    public Optional<Song> searchSong(String songName) {
+       for(Song song:songs){
+           if(song.getName().equals(songName)) return Optional.of(song);
+       }
+       return Optional.empty(); //song not found
     }
 }
