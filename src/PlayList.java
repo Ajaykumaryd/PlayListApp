@@ -33,13 +33,17 @@ public class PlayList {
     //    add song from album to PlayList
     public String addSongFromAlbum(Album album,String songName) {
 
-        //     Boolean songExists=album.findSong(songName);  //o(N)
+        //Boolean songExists=album.findSong(songName);  //o(N)
 //     Song song;
 //     if(songExists){
 //         song=album.searchSong(songName);  //o(N)
 //     }
 //     }
         //both information found together //True/False and Song using Optional;
+        //    Optional is a new type introduced in Java 8.
+//    It is used to represent a value that may or may not be present.
+//    In other words, an Optional object can either contain a non-null value (in which case it is considered present)
+//    or it can contain no value at all (in which case it is considered empty).
         Optional<Song> songOpt=album.searchSong(songName);
         if(songOpt.isEmpty()) return "Song not found in album"; //song not found
         Song songInAlbum=songOpt.get();  //return a song
@@ -95,9 +99,5 @@ public class PlayList {
             return "current song is"+ itr.next();
         }
     }
-
-
-
-
-
+    
 }
